@@ -1,0 +1,10 @@
+﻿@page "{name?}/{id?}"
+@model razor_pages.HR.IndexModel
+@{
+}
+<h1>Welcome to the HR Area</h1>
+
+@if (@Model.Name is not null)
+{
+    <p>Hello, @Model.Name! your reference index <isindex> @Model.ID.</p>
+}

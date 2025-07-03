@@ -1,0 +1,39 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    ViewData["Description"] = "Learn about building Web apps with ASP.NET Core.";
+    var message = "ASP.NET Core, Razor Pages, Web apps.";
+
+    string showMessage()
+    {
+        return ViewData["Description"] + " - " + message;
+    }
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    @* <p>@ViewData["Description"]</p> *@
+    @if (Model.showMessage)
+    {
+        <p>@showMessage()</p>
+    }
+    Here are some other project types you can <a asp-protocol="https" asp-host="asp.net" asp-page="/Index">explore </a>:
+    <ul>
+        @foreach (var projectType in Model.OtherProjectTypes)
+        {
+            <li>@projectType</li>
+        }
+    </ul>
+    @* <p>@showMessage()</p> *@
+</div>
+
+@section Scripts {
+
+    <script src="~/js/index.js" asp-append-version="true"></script>
+
+}
+
+@section WelcomeMessage {
+    <h1 class="text-info">Welcome to the Razor Pages application!</h1>
+}
